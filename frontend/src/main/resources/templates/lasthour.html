@@ -1,0 +1,34 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Statistics of last hour</title>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.1.1/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<h2><p class="text-center">Statistics of last hour</p></h2>
+
+<div th:switch="${data_bean}">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ssoid</th>
+            <th scope="col">time</th>
+            <th scope="col">form id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${data_bean}">
+            <td scope="row" th:text="${user.userId}"></td>
+            <td th:text="${user.eventTime}"></td>
+            <td th:text="${user.formId}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
